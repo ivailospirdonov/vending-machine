@@ -1,5 +1,5 @@
 import VendingMachineView from "./views/VendingMachineView";
-import "./App.css";
+import "./styles/global.scss";
 
 function App() {
   return <VendingMachineView />;

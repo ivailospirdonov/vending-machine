@@ -1,0 +1,8 @@
+.inset-coin-wrapper {
+  grid-area: coin;
+  display: flex;
+
+  &__btn {
+    border-radius: 0 5px 5px 0;
+  }
+}

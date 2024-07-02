@@ -1,0 +1,9 @@
+.select-product-wrapper {
+  grid-area: select-product;
+  display: flex;
+  justify-content: end;
+
+  &__btn {
+    border-radius: 0 5px 5px 0;
+  }
+}

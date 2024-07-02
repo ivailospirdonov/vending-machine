@@ -13,8 +13,62 @@
   },
   {
     "id": 3,
-    "name": "Fanta",
-    "quantity": 3,
+    "name": "Coca-Cola Zero",
+    "quantity": 15,
+    "price": 2.1
+  },
+  {
+    "id": 4,
+    "name": "Fanta Strawberry",
+    "quantity": 6,
     "price": 0.9
+  },
+  {
+    "id": 5,
+    "name": "Fanta Pineapple",
+    "quantity": 8,
+    "price": 0.2
+  },
+  {
+    "id": 6,
+    "name": "Fanta Peach",
+    "quantity": 3,
+    "price": 1.2
+  },
+  {
+    "id": 7,
+    "name": "Fanta Forest Fruits",
+    "quantity": 10,
+    "price": 1.8
+  },
+  {
+    "id": 8,
+    "name": "Fanta Mango",
+    "quantity": 11,
+    "price": 1.4
+  },
+  {
+    "id": 9,
+    "name": "Nestea Mango",
+    "quantity": 12,
+    "price": 1.6
+  },
+  {
+    "id": 10,
+    "name": "Nestea Lemon",
+    "quantity": 7,
+    "price": 0.5
+  },
+  {
+    "id": 11,
+    "name": "Nestea Forest Fruit",
+    "quantity": 6,
+    "price": 2.8
+  },
+  {
+    "id": 12,
+    "name": "San Benedetto Lemon",
+    "quantity": 1,
+    "price": 0.4
   }
 ]

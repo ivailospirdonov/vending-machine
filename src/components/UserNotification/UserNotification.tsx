@@ -1,18 +1,15 @@
-import React from "react";
+import classes from "./UserNotification.module.scss";
 
 interface UserNotificationTypes {
   notification: string;
-  totalInserted: number;
 }
 
 export default function UserNotification({
   notification,
-  totalInserted,
 }: UserNotificationTypes) {
   return (
-    <>
-      <p>{notification}</p>
-      <p>{totalInserted}</p>
-    </>
+    <div className={classes["notification-wrapper"]}>
+      <p className={classes["notification-wrapper__text"]}>{notification}</p>
+    </div>
   );
 }

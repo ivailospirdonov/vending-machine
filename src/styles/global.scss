@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "./breakpoints.scss";
+@import "./theme.scss";
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Montserrat";
+  background: linear-gradient(
+    to bottom right,
+    var(--lighter-grey),
+    var(--grey)
+  );
+
+  button,
+  input {
+    font-family: "Montserrat";
+  }
+
+  input {
+    max-width: 70px;
+    padding: var(--spacing-8);
+    border: 1px solid var(--light-grey);
+    border-radius: 5px 0 0 5px;
+  }
+
+  button {
+    cursor: pointer;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    padding: var(--spacing-8) var(--spacing-16);
+
+    &:hover {
+      background-color: var(--light-purple);
+    }
+  }
+}

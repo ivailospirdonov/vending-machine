@@ -1,0 +1,8 @@
+.notification-wrapper {
+  grid-area: notification;
+
+  &__text {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+}

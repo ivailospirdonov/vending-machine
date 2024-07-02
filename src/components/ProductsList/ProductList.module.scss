@@ -1,0 +1,41 @@
+@import "../../styles/breakpoints.scss";
+
+.product-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  margin: 0;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    background: var(--white);
+
+    &__name {
+      padding: var(--spacing-16);
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    &__info {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid var(--light-grey);
+    }
+  }
+}

@@ -7,8 +7,9 @@ import { Product } from "../types/product";
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [totalInserted, setTotalInserted] = useState<number>(0);
+  const [hasPurchased, setHasPurchased] = useState(false);
   const [notification, setNotification] = useState<string>(
-    "Моля, сложете монети!"
+    "Please, insert coins!"
   );
   const insertedProductIdRef = useRef<HTMLInputElement>(null);
   const insertedCoinRef = useRef<HTMLInputElement>(null);
@@ -19,7 +20,7 @@ export const useProducts = () => {
         const fetchedProducts = await fetchProducts();
         setProducts(fetchedProducts);
       } catch (error) {
-        setNotification("Грешка при зареждане на продуктите!");
+        setNotification("Something went wrong!");
       }
     };
     loadProducts();
@@ -27,16 +28,23 @@ export const useProducts = () => {
 
   const handlePurchaseOver = useCallback(() => {
     if (totalInserted > 0) {
-      setNotification(`Ресто: ${totalInserted}!`);
+      setNotification(`Change: ${totalInserted}!`);
     }
     insertedProductIdRef.current && (insertedProductIdRef.current.value = "");
     insertedCoinRef.current && (insertedCoinRef.current.value = "");
     setTotalInserted(0);
   }, [totalInserted]);
 
+  useEffect(() => {
+    if (hasPurchased) {
+      handlePurchaseOver();
+      setHasPurchased(false);
+    }
+  }, [handlePurchaseOver, hasPurchased]);
+
   const handleBuyProduct = useCallback(() => {
     if (!insertedProductIdRef.current) {
-      setNotification("Въведете номер на продукт!");
+      setNotification("Insert product number!");
       return;
     }
 
@@ -44,17 +52,17 @@ export const useProducts = () => {
     const productToBuy = products.find((product) => product.id === productId);
 
     if (!productToBuy) {
-      setNotification("Въведеният номер е грешен!");
+      setNotification("Wrong product number!");
       return;
     }
 
     if (productToBuy.quantity === 0) {
-      setNotification("Продуктът е изчерпан, моля изберете друг!");
+      setNotification("Product is out of stock!");
       return;
     }
 
     if (productToBuy.price > totalInserted) {
-      setNotification("Сложете още монети!");
+      setNotification("Insert more coins!");
       return;
     }
 
@@ -68,23 +76,24 @@ export const useProducts = () => {
     setTotalInserted((prevAmount) =>
       formatToFixed(prevAmount - productToBuy.price)
     );
-    handlePurchaseOver();
-  }, [products, totalInserted, handlePurchaseOver]);
+    setHasPurchased(true);
+  }, [products, totalInserted]);
 
   const handleInsertCoin = useCallback(() => {
-    if (!insertedCoinRef.current) {
-      setNotification("Сложете монета!");
+    if (!insertedCoinRef.current?.value) {
+      setNotification("Insert a coin!");
       return;
     }
 
     const coinValue = Number(insertedCoinRef.current.value);
 
     if (!isCoinValid(coinValue)) {
-      setNotification("Сложете правилна монета!");
+      setNotification("Insert a correct coin!");
       return;
     }
 
     setTotalInserted((prevAmount) => formatToFixed(prevAmount + coinValue));
+    setNotification("Insert more coins or choose a product!");
     insertedCoinRef.current.value = "";
   }, []);
 

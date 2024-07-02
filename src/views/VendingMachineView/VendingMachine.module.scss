@@ -1,6 +1,53 @@
+@import "../../styles/breakpoints.scss";
+
 .vending-machine-wrapper {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include respond-to(md) {
+    height: auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(xl) {
+    max-width: 1200px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-list-wrapper {
+  overflow: auto;
+
+  @include respond-to(md) {
+    grid-column: span 2;
+  }
+
+  @include respond-to(xl) {
+    grid-column: span 3;
+  }
+}
+
+.vending-machine-inputs-wrapper {
+  background-color: var(--white);
+  padding: var(--spacing-16);
+  padding-top: 0;
+  border-top: 1px solid var(--light-grey);
+  display: grid;
+  align-self: end;
+  gap: var(--spacing-16);
+  grid-template-areas:
+    "notification notification"
+    "coin select-product"
+    "inserted reset-button";
+
+  @include respond-to(md) {
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    margin-top: var(--spacing-16);
+    padding-bottom: 0;
+    align-self: start;
+  }
 }

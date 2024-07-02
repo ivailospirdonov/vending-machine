@@ -1,10 +1,11 @@
+import AmountInserted from "../../components/AmountInserted/AmountInserted";
 import InsertCoin from "../../components/InsertCoin/InsertCoin";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import ResetButton from "../../components/ResetButton/ResetButton";
 import SelectProduct from "../../components/SelectProduct/SelectProduct";
 import UserNotification from "../../components/UserNotification/UserNotification";
 import { Product } from "../../types/product";
-import vmStyles from "./VendingMachine.module.scss";
+import classes from "./VendingMachine.module.scss";
 
 interface VendingMachineProps {
   products: Product[];
@@ -28,13 +29,12 @@ export default function VendingMachine({
   handlePurchaseOver,
 }: VendingMachineProps) {
   return (
-    <div className={vmStyles["vending-machine-wrapper"]}>
-      <ProductsList products={products} />
-      <div>
-        <UserNotification
-          notification={notification}
-          totalInserted={totalInserted}
-        />
+    <div className={classes["vending-machine-wrapper"]}>
+      <div className={classes["product-list-wrapper"]}>
+        <ProductsList products={products} />
+      </div>
+      <div className={classes["vending-machine-inputs-wrapper"]}>
+        <UserNotification notification={notification} />
         <InsertCoin
           insertedCoin={insertedCoin}
           handleInsertCoin={handleInsertCoin}
@@ -43,6 +43,7 @@ export default function VendingMachine({
           insertedProductId={insertedProductId}
           handleBuyProduct={handleBuyProduct}
         />
+        <AmountInserted totalInserted={totalInserted} />
         <ResetButton handlePurchaseOver={handlePurchaseOver} />
       </div>
     </div>
