@@ -27,7 +27,7 @@ export const useProducts = () => {
   }, []);
 
   const handlePurchaseOver = useCallback(() => {
-    if (totalInserted > 0) {
+    if (totalInserted >= 0) {
       setNotification(`Change: ${totalInserted}!`);
     }
     insertedProductIdRef.current && (insertedProductIdRef.current.value = "");
@@ -89,6 +89,7 @@ export const useProducts = () => {
 
     if (!isCoinValid(coinValue)) {
       setNotification("Insert a correct coin!");
+      insertedCoinRef.current.value = "";
       return;
     }
 
