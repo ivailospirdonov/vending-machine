@@ -27,7 +27,7 @@ The Vending Machine Project is a web application that simulates the functionalit
 
 1. Clone the repository:
 
-   git clone https://github.com/yourusername/vending-machine.git
+   git clone https://github.com/ivailospirdonov/vending-machine.git
    cd vending-machine
 
 2. Install dependencies:
