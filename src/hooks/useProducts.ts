@@ -93,7 +93,7 @@ export const useProducts = () => {
     }
 
     setTotalInserted((prevAmount) => formatToFixed(prevAmount + coinValue));
-    setNotification("Insert more coins or choose a product!");
+    setNotification("Select a product!");
     insertedCoinRef.current.value = "";
   }, []);
 
@@ -106,5 +106,6 @@ export const useProducts = () => {
     handleBuyProduct,
     handleInsertCoin,
     handlePurchaseOver,
+    setHasPurchased,
   };
 };

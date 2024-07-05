@@ -11,29 +11,29 @@ body {
     var(--lighter-grey),
     var(--grey)
   );
+}
 
-  button,
-  input {
-    font-family: "Montserrat";
-  }
+button,
+input {
+  font-family: "Montserrat";
+}
 
-  input {
-    max-width: 70px;
-    padding: var(--spacing-8);
-    border: 1px solid var(--light-grey);
-    border-radius: 5px 0 0 5px;
-  }
+input {
+  max-width: 70px;
+  padding: var(--spacing-8);
+  border: 1px solid var(--light-grey);
+  border-radius: 5px 0 0 5px;
+}
 
-  button {
-    cursor: pointer;
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    background-color: var(--dark-purple);
-    padding: var(--spacing-8) var(--spacing-16);
+button {
+  cursor: pointer;
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--dark-purple);
+  padding: var(--spacing-8) var(--spacing-16);
 
-    &:hover {
-      background-color: var(--light-purple);
-    }
+  &:hover {
+    background-color: var(--light-purple);
   }
 }
